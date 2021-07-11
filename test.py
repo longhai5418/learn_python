@@ -1,4 +1,7 @@
-print("test")
+# import numpy
+
+
+print("test111")
 print("hello python")
 
-print("testwww")
+print("test")
