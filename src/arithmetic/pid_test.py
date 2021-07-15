@@ -67,8 +67,6 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
     plt.grid(True)
     plt.show()
 
-
-
 if __name__ == "__main__":
     test_pid(1.2, 3, 0.001, L=80)
 #    test_pid(0.8, L=50)
