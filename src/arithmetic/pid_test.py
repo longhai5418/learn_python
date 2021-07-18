@@ -3,14 +3,16 @@
 import PID
 import time
 import matplotlib
-matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import make_interp_spline
 
-#这个程序的实质就是在前九秒保持零输出，在后面的操作中在传递函数为某某的系统中输出1
+matplotlib.use("TkAgg")
 
-def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
+
+# 这个程序的实质就是在前九秒保持零输出，在后面的操作中在传递函数为某某的系统中输出1
+
+def test_pid(P=0.2, I=0.0, D=0.0, L=100):
     """Self-test PID class
 
     .. note::
@@ -27,7 +29,7 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
     """
     pid = PID.PID(P, I, D)
 
-    pid.SetPoint=0.0
+    pid.SetPoint = 0.0
     pid.setSampleTime(0.01)
 
     END = L
@@ -41,8 +43,8 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
         pid.update(feedback)
         output = pid.output
         if pid.SetPoint > 0:
-            feedback +=output# (output - (1/i))控制系统的函数
-        if i>9:
+            feedback += output  # (output - (1/i))控制系统的函数
+        if i > 9:
             pid.SetPoint = 1
         time.sleep(0.01)
 
@@ -57,15 +59,16 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
     plt.plot(time_smooth, feedback_smooth)
     plt.plot(time_list, setpoint_list)
     plt.xlim((0, L))
-    plt.ylim((min(feedback_list)-0.5, max(feedback_list)+0.5))
+    plt.ylim((min(feedback_list) - 0.5, max(feedback_list) + 0.5))
     plt.xlabel('time (s)')
     plt.ylabel('PID (PV)')
     plt.title('TEST PID')
 
-    plt.ylim((1-0.5, 1+0.5))
+    plt.ylim((1 - 0.5, 1 + 0.5))
 
     plt.grid(True)
     plt.show()
+
 
 if __name__ == "__main__":
     test_pid(1.2, 3, 0.001, L=80)
