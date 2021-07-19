@@ -1,6 +1,4 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
-print("hello python")
 
-
-
+print("__name__: ", __name__)
