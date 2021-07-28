@@ -3,7 +3,6 @@
 import http.server
 import socketserver
 
-
 class MyBaseRequestHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
         print("GET:",self.address_string(),
