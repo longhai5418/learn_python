@@ -20,7 +20,7 @@ import numpy as np
 # plt.figure(figsize=(15, 8), dpi=100)
 # plt.bar(data_X, data_Y, width=0.5)
 # plt.show()
-for i in range(50):
+for i in range(3):
     data_X = np.random.randint(33, size=50)
     data_Y = np.random.randint(20, size=50)
     plt.figure(figsize=(15, 8), dpi=100)
